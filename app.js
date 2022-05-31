@@ -60,6 +60,9 @@ app.post("/", async (req, res) => {
   });
 });
 
+//delete post
+app.delete("/", async (req, res) => {});
+
 //initiate
 app.listen(process.env.PORT, () => {
   console.log(` Listening to PORT : ${process.env.PORT}`);
