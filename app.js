@@ -69,7 +69,11 @@ app.post("/", async (req, res) => {
 //delete post
 // app.delete("/", async (req, res) => {});
 app.get("/:id/deleteTask", async (req, res) => {
+<<<<<<< HEAD
   const todo = await Todo.findByIdAndDelete(req.params.id);
+=======
+  const todos = await Todo.findByIdAndDelete(req.params.id);
+>>>>>>> main
   res.redirect("/");
 });
 
