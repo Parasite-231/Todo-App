@@ -61,7 +61,11 @@ app.post("/", async (req, res) => {
 });
 
 //delete post
-app.delete("/", async (req, res) => {});
+// app.delete("/", async (req, res) => {});
+app.get("/:id/deleteTask", async (req, res) => {
+  const todos = await Todo.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
 
 //initiate
 app.listen(process.env.PORT, () => {
