@@ -68,16 +68,12 @@ app.post("/", async (req, res) => {
 
 //delete post
 // app.delete("/", async (req, res) => {});
-app.get("/:id/deleteTask", async (req, res) => {
-<<<<<<< HEAD
-  const todo = await Todo.findByIdAndDelete(req.params.id);
-=======
-  const todos = await Todo.findByIdAndDelete(req.params.id);
->>>>>>> main
-  res.redirect("/");
-});
 
 //initiate
 app.listen(process.env.PORT, () => {
   console.log(` Listening to PORT : ${process.env.PORT}`);
+});
+app.get("/:id/deleteTask", async (req, res) => {
+  const todos = await Todo.findByIdAndDelete(req.params.id);
+  res.redirect("/");
 });
