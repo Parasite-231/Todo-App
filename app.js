@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 dotenv.config();
 // request parsers
 // app.use(express.static("public"));
+// app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -45,8 +46,12 @@ app.post("/", async (req, res) => {
   //todo object that will insert into database
   //new document object create
   //single document object insert way
+  const assignee = req.body.assignee.trim();
   const text = req.body.text.trim();
-  const createNewTodo = new Todo({ text });
+  const createNewTodo = new Todo({
+    assignee: assignee,
+    text: text,
+  });
   //actual document is created
   //newTodo will enter in the database
   await createNewTodo.save((err) => {
